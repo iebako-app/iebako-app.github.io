@@ -1,0 +1,283 @@
+/* イエバコ公式サイト スタイル
+   アプリ本体の Sleek デザインと統一: accent #7F77DD, bg #FBF8F4 */
+
+:root {
+  --color-bg: #FBF8F4;
+  --color-bg-soft: #F2EEEA;
+  --color-surface: #FFFFFF;
+  --color-text-primary: #2A2A2A;
+  --color-text-secondary: #5A5A5A;
+  --color-text-tertiary: #888888;
+  --color-border: #E5E1DC;
+  --color-accent: #7F77DD;
+  --color-accent-soft: #EEEDFE;
+  --color-accent-strong: #5A52B8;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1A1A20;
+    --color-bg-soft: #232329;
+    --color-surface: #2A2A32;
+    --color-text-primary: #F5F2EC;
+    --color-text-secondary: #B8B4AC;
+    --color-text-tertiary: #888470;
+    --color-border: #3A3A42;
+    --color-accent: #9B94E8;
+    --color-accent-soft: #3C3489;
+    --color-accent-strong: #B5AFEE;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--color-accent-strong); text-decoration: underline; }
+
+img { max-width: 100%; height: auto; }
+
+/* レイアウト */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: saturate(180%) blur(8px);
+  -webkit-backdrop-filter: saturate(180%) blur(8px);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-size: 17px;
+}
+.brand img { width: 32px; height: 32px; border-radius: 7px; }
+.nav { display: flex; gap: 18px; flex-wrap: wrap; }
+.nav a {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav a:hover { color: var(--color-accent); text-decoration: none; }
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+main {
+  padding: 48px 0 96px;
+}
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 32px 0;
+  margin-top: 64px;
+  color: var(--color-text-tertiary);
+  font-size: 14px;
+}
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-footer .nav a { font-size: 13px; }
+
+/* タイポグラフィ */
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 40px 0 12px;
+  letter-spacing: -0.005em;
+}
+h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 24px 0 8px;
+}
+p { margin: 0 0 16px; }
+ul, ol { margin: 0 0 16px; padding-left: 22px; }
+li { margin: 4px 0; }
+
+.lead {
+  color: var(--color-text-secondary);
+  font-size: 17px;
+  margin-bottom: 24px;
+}
+
+.meta {
+  color: var(--color-text-tertiary);
+  font-size: 13px;
+  margin-bottom: 32px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--color-border);
+  margin: 32px 0;
+}
+
+/* ボタン・カード */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.btn:hover {
+  background: var(--color-accent-strong);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.btn-secondary {
+  background: var(--color-bg-soft);
+  color: var(--color-text-primary);
+}
+.btn-secondary:hover {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin: 16px 0;
+}
+
+.note {
+  background: var(--color-accent-soft);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  font-size: 15px;
+  color: var(--color-text-primary);
+  margin: 16px 0;
+}
+
+/* FAQ */
+details {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin: 8px 0;
+}
+details > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  padding: 4px 0;
+  list-style: none;
+  position: relative;
+  padding-left: 22px;
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+  transition: transform 0.15s ease;
+  color: var(--color-accent);
+}
+details[open] > summary::before {
+  transform: rotate(90deg);
+}
+details > div, details > p {
+  padding-top: 8px;
+  color: var(--color-text-secondary);
+}
+
+/* フォーム埋め込み */
+.form-embed {
+  width: 100%;
+  border: none;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  margin: 24px 0;
+}
+
+/* ランディング */
+.hero {
+  text-align: center;
+  padding: 64px 0 48px;
+}
+.hero img.app-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 27px;
+  box-shadow: 0 8px 24px rgba(127, 119, 221, 0.18);
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+.hero .lead {
+  font-size: 19px;
+  max-width: 520px;
+  margin: 0 auto 32px;
+}
+
+@media (max-width: 600px) {
+  .container { padding: 0 20px; }
+  h1 { font-size: 26px; }
+  .hero h1 { font-size: 30px; }
+  .hero img.app-icon { width: 96px; height: 96px; border-radius: 22px; }
+  .nav { gap: 12px; }
+  .nav a { font-size: 13px; }
+  main { padding: 32px 0 64px; }
+}
